@@ -36,6 +36,6 @@ class Metric(resource.Resource, display.Display):
     @property
     def dimension(self):
         if self.dimensions and len(self.dimensions) > 0:
-            return [dim['name'] + '=' + dim['value'] for dim in self.dimension]
+            return [dim['name'] + '=' + dim['value'] for dim in self.dimensions]
         return '';
 
