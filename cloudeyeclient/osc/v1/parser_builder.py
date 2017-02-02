@@ -177,7 +177,8 @@ class AlarmParser(object):
         parser.add_argument(
             "--start",
             required=required,
-            metavar="<alarm-id>",
+            metavar="<count>",
+            type=int,
             help=_("Pagination result start from"),
         )
 
