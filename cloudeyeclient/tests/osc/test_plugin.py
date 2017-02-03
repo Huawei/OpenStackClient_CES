@@ -22,7 +22,7 @@ from cloudeyeclient.osc import plugin
 from cloudeyeclient.tests import base
 
 
-class TestAntiDDosPlugin(base.BaseTestCase):
+class TestCloudEyePlugin(base.BaseTestCase):
     @mock.patch('cloudeyeclient.v1.client.Client')
     def test_make_client_with_session(self, client):
         instance = mock.Mock()

@@ -91,7 +91,8 @@ class ListMetricData(command.Lister):
                                            filter_=args.filter,
                                            dimensions=dimensions)
         columns = ["timestamp", args.filter, "unit"]
-        return columns, (r.get_display_data(columns) for r in data)
+        formatter = resource.MetricData.formatter
+        return columns, (r.get_display_data(columns, formatter) for r in data)
 
 
 class AddMetricData(command.Command):
