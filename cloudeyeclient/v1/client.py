@@ -26,8 +26,8 @@ LOGGER = logging.getLogger(__name__)
 class Client(object):
     """Client for the HuaWei AutoScaling v1 API."""
 
-    # service name registered in open-stack
-    service_name = 'as'
+    # service name registered in openstack
+    service_name = 'cloudeye'
 
     def __init__(self, session=None, endpoint=None, **kwargs):
         """Initialize a new client for the VBS v2 API.
