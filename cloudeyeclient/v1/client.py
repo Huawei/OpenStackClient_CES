@@ -16,7 +16,9 @@
 import logging
 
 from cloudeyeclient.common import httpclient
+from cloudeyeclient.v1 import alarm_mgr
 from cloudeyeclient.v1 import metric_mgr
+from cloudeyeclient.v1 import quota_mgr
 
 LOGGER = logging.getLogger(__name__)
 
@@ -52,5 +54,8 @@ class Client(object):
             endpoint += '/V1.0/%(project_id)s'
         self.client = httpclient.OpenStackHttpClient(session, endpoint, **kwargs)
 
+        # initial manager of cloud eye
         self.metric_mgr = metric_mgr.MetricManager(self.client)
+        self.alarm_mgr = alarm_mgr.AlarmManager(self.client)
+        self.quota_mgr = quota_mgr.QuotaManager(self.client)
 

@@ -24,14 +24,67 @@ class MetricManager(manager.Manager):
 
     resource_class = resource.Metric
 
-    def list(self, namespace=None, metric_name=None, dim=None, start=None,
+    def list(self, namespace=None, metric_name=None, dimensions=[], start=None,
              limit=None, order=None):
+        """list metric
+
+        :param namespace:
+        :param metric_name:
+        :param dimensions: ["${key},${value}", ..]
+        :param start: "${key}:${value}"
+        :param limit:
+        :param order:
+        :return:
+        """
         params = utils.remove_empty_from_dict({
             "namespace": namespace,
             "metric_name": metric_name,
             "start": start,
-            "dim": None,
             "limit": limit,
             "order": order
         })
+        if dimensions:
+            for (idx, dimension) in enumerate(dimensions):
+                params["dim.%d" % idx] = dimension
         return self._list('/metrics', key='metrics', params=params)
+
+    def list_favorite(self):
+        """list favorite metric"""
+        return self._list('/favorite-metrics', key='metrics')
+
+    def list_metric_data(self, namespace, metric_name, from_, to, period,
+                         filter_, dimensions):
+        """list metric data"""
+        params = {
+            "namespace": namespace,
+            "metric_name": metric_name,
+            "from": from_,
+            "to": to,
+            "period": period,
+            "filter": filter_,
+        }
+
+        for (idx, dimension) in enumerate(dimensions):
+            params["dim.%d" % idx] = dimension
+        return self._list('/metric-data',
+                          params=params,
+                          key='datapoints',
+                          resource_class=resource.MetricData)
+
+    def add_metric_data(self, namespace, metric_name, dimensions, ttl,
+                        collect_time, value, unit=None, type_=None):
+        """add metric data"""
+        data = utils.remove_empty_from_dict({
+            "metric": {
+                "namespace": namespace,
+                "dimensions": dimensions,
+                "metric_name": metric_name
+            },
+            "ttl": ttl,
+            "collect_time": collect_time,
+            "value": value,
+            "unit": unit,
+            "type": type_
+        })
+
+        return self._create('/metric-data', data=[data], raw=True)

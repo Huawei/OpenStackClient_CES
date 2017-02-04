@@ -35,7 +35,6 @@ class MetricParser(object):
         parser.add_argument(
             "--namespace",
             required=required,
-            metavar="<namespace>",
             choices=MetricParser.namespaces,
             help=_("list metric with namespace")
         )
@@ -50,12 +49,13 @@ class MetricParser(object):
         )
 
     @staticmethod
-    def add_dim_arg(parser, required=False):
+    def add_dimensions_arg(parser, required=False):
         parser.add_argument(
-            "--dim",
+            "--dimensions",
             required=required,
             metavar="<key=value>",
-            action=parseractions.KeyValueAction,
+            default=[],
+            action='append',
             help=_("Metric dimension (repeat to set multiple "
                    "dimension, max repeat time is 3)"),
         )
@@ -66,7 +66,126 @@ class MetricParser(object):
             "--start",
             required=required,
             metavar="<key=value>",
-            action=parseractions.KeyValueAction,
             help=_("return result list start from ("
-                   "namespace.metric-name.key=value)"),
+                   "namespace.metric-name.key:value)"),
+        )
+
+    @staticmethod
+    def add_from_arg(parser, required=True):
+        parser.add_argument(
+            "--from",
+            required=required,
+            dest="from_",
+            metavar="<timestamp>",
+            type=int,
+            help=_("Unix timestamp (milliseconds)"),
+        )
+
+    @staticmethod
+    def add_to_arg(parser, required=True):
+        parser.add_argument(
+            "--to",
+            required=required,
+            metavar="<timestamp>",
+            type=int,
+            help=_("Unix timestamp (milliseconds)"),
+        )
+
+    @staticmethod
+    def add_period_arg(parser, required=True):
+        parser.add_argument(
+            "--period",
+            required=required,
+            choices=["1", "300", "1200", "3600", "14400", "86400"],
+            help=_("Monitor granularity (second), "
+                   "1 stands for real-time"),
+        )
+
+    @staticmethod
+    def add_filter_arg(parser, required=True):
+        parser.add_argument(
+            "--filter",
+            required=required,
+            choices=["average", "variance", "min", "max"],
+            help=_("filter by data aggregation method"),
+        )
+
+    @staticmethod
+    def add_ttl_arg(parser, required=True):
+        parser.add_argument(
+            "--ttl",
+            required=required,
+            metavar="<second>",
+            type=int,
+            help=_("metric data keeps time(second), max is 604800"),
+        )
+
+    @staticmethod
+    def add_collect_time_arg(parser, required=True):
+        parser.add_argument(
+            "--collect-time",
+            required=required,
+            metavar="<timestamp>",
+            type=int,
+            help=_("UNIX timestamp"),
+        )
+
+    @staticmethod
+    def add_value_arg(parser, required=True):
+        parser.add_argument(
+            "--value",
+            required=required,
+            metavar="<value>",
+            type=int,
+            help=_("metric data value"),
+        )
+
+    @staticmethod
+    def add_unit_arg(parser, required=False):
+        parser.add_argument(
+            "--unit",
+            required=required,
+            metavar="<unit>",
+            help=_("metric data unit, example: %%, Mb"),
+        )
+
+    @staticmethod
+    def add_type_arg(parser, required=False):
+        parser.add_argument(
+            "--type",
+            required=required,
+            dest="type_",
+            choices=["int", "float"],
+            help=_("metric data type"),
+        )
+
+    @staticmethod
+    def add_custom_namespace_arg(parser, required=True):
+        parser.add_argument(
+            "--namespace",
+            metavar="<namespace>",
+            required=required,
+            help=_("metric namespace (service.item), should not "
+                   "starts with SYS, length should be 3-32")
+        )
+
+
+class AlarmParser(object):
+
+    @staticmethod
+    def add_start_arg(parser, required=False):
+        parser.add_argument(
+            "--start",
+            required=required,
+            metavar="<count>",
+            type=int,
+            help=_("Pagination result start from"),
+        )
+
+    @staticmethod
+    def add_alarm_id_arg(parser, op):
+        parser.add_argument(
+            "alarm_id",
+            metavar="<alarm-id>",
+            help=_("alarm with id to be %s" % op),
         )

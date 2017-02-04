@@ -13,23 +13,17 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
-from cloudeyeclient.tests import fakes
-from osc_lib.tests import utils
+
+from cloudeyeclient.common import manager
+from cloudeyeclient.common import utils
+from cloudeyeclient.v1 import resource
 
 
-class BaseTestCase(utils.TestCommand):
-    """Base Test case class for all unit tests."""
-    pass
+class QuotaManager(manager.Manager):
+    """Cloud Eye quota API management"""
 
+    resource_class = resource.Quota
 
-class CloudEyeV1BaseTestCase(BaseTestCase):
-    """Base test case class for Cloud Eye V1 management API."""
+    def list(self):
+        return self._list('/quotas', key='quotas.resources')
 
-    def __init__(self, *args, **kwargs):
-        super(CloudEyeV1BaseTestCase, self).__init__(*args, **kwargs)
-        self.cmd = None
-
-    def setUp(self):
-        super(CloudEyeV1BaseTestCase, self).setUp()
-        fake_cloudeye_client = fakes.FakeCloudEyeV1Client()
-        self.app.client_manager.cloudeye = fake_cloudeye_client

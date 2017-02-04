@@ -15,13 +15,15 @@
 #
 
 import mock
-from oslo_serialization import jsonutils
-from requests import Response
-
 from cloudeyeclient.common import display
 from cloudeyeclient.common import manager
 from cloudeyeclient.common import resource as r
 from cloudeyeclient.common import utils
+from cloudeyeclient.v1 import alarm_mgr
+from cloudeyeclient.v1 import metric_mgr
+from cloudeyeclient.v1 import quota_mgr
+from oslo_serialization import jsonutils
+from requests import Response
 
 # fake request id
 FAKE_REQUEST_ID = 'req-0594c66b-6973-405c-ae2c-43fcfc00f2e3'
@@ -113,3 +115,12 @@ class FakeHTTPResponse(object):
 
     def json(self):
         return jsonutils.loads(self.content)
+
+
+class FakeCloudEyeV1Client(object):
+
+    def __init__(self, **kwargs):
+        self.fake_http_client = mock.Mock()
+        self.metric_mgr = metric_mgr.MetricManager(self.fake_http_client)
+        self.alarm_mgr = alarm_mgr.AlarmManager(self.fake_http_client)
+        self.quota_mgr = quota_mgr.QuotaManager(self.fake_http_client)
