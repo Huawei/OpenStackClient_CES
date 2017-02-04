@@ -1,9 +1,9 @@
 python-antiddosclient
 =====================
 
-This is a `OpenStack Client`_ plugin for HuaWei Auto-Scaling Management API which
+This is a `OpenStack Client`_ plugin for HuaWei Cloud-Eye Management API which
 provides **command-line scripts** (integrated with openstack) and Python library for
-accessing the Auto-Scaling management API.
+accessing the Cloud-Eye management API.
 
 
 Installation
@@ -12,7 +12,7 @@ Currently, We can install the plugin from source code
 
 .. code:: console
 
-  git clone https://github.com/Huawei/OpenStackClient_Auto-Scaling python-cloudeyeclient
+  git clone https://github.com/Huawei/OpenStackClient_CES python-cloudeyeclient
   cd python-cloudeyeclient
   python setup.py install
 
@@ -128,7 +128,7 @@ follow all the usage **openstack** provided.
 Python Library Usage
 -------------------------------
 
-The full api is documented in the `AntiDDos Offical Document`_ site
+The full api is documented in the `CloudEye Offical Document`_ site
 
 Here's an example of listing antiddos status using Python library with keystone V3 authentication:
 
@@ -149,13 +149,13 @@ Here's an example of listing antiddos status using Python library with keystone 
     >>> # Next create a Keystone session using the auth plugin we just created
     >>> session = session.Session(auth=auth)
 
-    >>> # Now we use the session to create a AntiDDos client
+    >>> # Now we use the session to create a CloudEye client
     >>> antiddos = client.Client(session=session)
 
     >>> # Then we can access all antiddos API
     >>> # Let's try list antiddos status API
     >>> antiddos_client.antiddos.list()
-    [<AntiDDos floating_ip_address=160.44.1 ....>, ....]
+    [<CloudEye floating_ip_address=160.44.1 ....>, ....]
 
 
 
@@ -175,13 +175,13 @@ Here's an example of listing antiddos status using Python library with keystone 
     >>> # Next create a Keystone session using the auth plugin we just created
     >>> session = session.Session(auth=auth)
 
-    >>> # Now we use the session to create a AntiDDos client
+    >>> # Now we use the session to create a CloudEye client
     >>> antiddos = client.Client(session=session)
 
     >>> # Then we can access all antiddos API
     >>> # Let's try list antiddos status API
     >>> antiddos_client.antiddos.list()
-    [<AntiDDos floating_ip_address=160.44.1 ....>, ....]
+    [<CloudEye floating_ip_address=160.44.1 ....>, ....]
 
 
 
@@ -201,7 +201,7 @@ Here's an example of listing antiddos status using Python library with keystone 
     >>> # Next create a Keystone session using the auth plugin we just created
     >>> session = session.Session(auth=auth)
 
-    >>> # Now we use the session to create a AntiDDos client
+    >>> # Now we use the session to create a CloudEye client
     >>> antiddos = client.Client(session=session)
 
     >>> # Then we can access all antiddos API
