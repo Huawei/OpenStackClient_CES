@@ -20,7 +20,7 @@ Currently, We can install the plugin from source code
 Command Line Client Usage
 -----------------------------------------
 
-.. note:: text
+.. note::
 
     The command line client is self-documenting. Use the --help or -h flag to access the usage options.
     You can find more command line client examples `here <./commands.rst>`_
@@ -54,18 +54,29 @@ follow all the usage **openstack** provided.
 
 Cloud-Eye-Service Client contains commands list in table below, use -h option to get more useage
 
++----------------------+
 | command              |
-|----------------------|
++======================+
 | metric list          |
++----------------------+
 | metric favorite list |
++----------------------+
 | metric data list     |
++----------------------+
 | metric data create   |
++----------------------+
 | alarm list           |
++----------------------+
 | alarm show           |
++----------------------+
 | alarm enable         |
++----------------------+
 | alarm disable        |
++----------------------+
 | alarm delete         |
++----------------------+
 | quota list           |
++----------------------+
 
 
 
@@ -186,7 +197,7 @@ Here's an example of listing antiddos status using Python library with keystone 
     [<Metric namespace=SYS.VPC ....>, ....]
 
 
-.. note:: text
+.. note::
 
     The example above must be running and configured to use the Keystone Middleware.
 
