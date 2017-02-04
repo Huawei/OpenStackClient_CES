@@ -34,6 +34,7 @@ Command Samples
 #. metric favorite list (查询已关注指标)
 
 .. code:: console
+
     $  openstack metric favorite list --os-cloudeye-endpoint-override=https://ces.eu-de.otc.t-systems.com
     +-----------+---------------------------------------+-------------------------------------------------------+
     | Namespace | Metric Name                           | Dimension                                             |
@@ -48,6 +49,7 @@ Command Samples
 #. alarm list (查询告警规则列表)
 
 .. code:: console
+
     $ openstack alarm list --limit=2 --os-cloudeye-endpoint-override=https://ces.eu-de.otc.t-systems.com
     +--------------------------+---------------------+-------------+------------------+---------------------------------------+--------+
     | id                       | name                | desc        | metric namespace | metric name                           | status |
@@ -60,6 +62,7 @@ Command Samples
 #. alarm show (查询单条告警规则信息)
 
 .. code:: console
+
     $  openstack alarm show al1483387711418ZNpR8DX3g
     +-------------------+--------------------------------------------------+
     | Field             | Value                                            |
@@ -81,6 +84,7 @@ Command Samples
 #. alarm enable (启用告警规则)
 
 .. code:: console
+
     $  openstack alarm enable al1483387711418ZNpR8DX3g
     Alarm al1483387711418ZNpR8DX3g has been enabled
 
@@ -88,6 +92,7 @@ Command Samples
 #. alarm disable (停用告警规则)
 
 .. code:: console
+
     $  openstack alarm disable al1483387711418ZNpR8DX3g
     Alarm al1483387711418ZNpR8DX3g has been disabled
 
@@ -95,6 +100,7 @@ Command Samples
 #. metric data list (查询监控数据)
 
 .. code:: console
+
     $ openstack metric data list --namespace=SYS.ECS --metric-name=cpu_util --filter=max
      --period=1 --from=1485698044212 --to=1485699044212 --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
     +---------------+-----+------+
@@ -109,6 +115,7 @@ Command Samples
 #. metric data create (添加监控数据)
 
 .. code:: console
+
     $ openstack metric data create --namespace=woo.ecs --metric-name=cpu_util
         --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
         --ttl 604800 --collect-time=1485699044212 --value=10 --unit=% --type=int --debug
@@ -117,6 +124,7 @@ Command Samples
 #. quota list (查询配额)
 
 .. code:: console
+
     $ openstack quota list
     +-------+-------+------+------+
     | type  | quota | used | unit |
