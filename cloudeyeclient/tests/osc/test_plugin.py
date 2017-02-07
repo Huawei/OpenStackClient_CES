@@ -29,7 +29,9 @@ class TestCloudEyePlugin(base.BaseTestCase):
         instance.session = mock.Mock()
         instance._cli_options = mock.Mock()
         instance._cli_options.config = mock.Mock()
-        instance._cli_options.config.get.return_value = "http://cloudeye.endpoint"
+        instance._cli_options.config.get.return_value = (
+            "http://cloudeye.endpoint"
+        )
         instance.region_name = fakes.REGION_NAME
         instance.interface = fakes.INTERFACE
         plugin.make_client(instance)

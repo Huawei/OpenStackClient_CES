@@ -13,8 +13,7 @@
 #
 import mock
 
-
-from cloudeyeclient.common import  resource as base_resource
+from cloudeyeclient.common import resource as base_resource
 from cloudeyeclient.osc.v1 import alarm
 from cloudeyeclient.tests import base
 from cloudeyeclient.v1 import alarm_mgr

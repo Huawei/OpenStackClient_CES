@@ -115,7 +115,8 @@ class Resource(RequestIdMixin):
     def __repr__(self):
         repr_keys = sorted(k for k in self.__dict__.keys() if k[0] != '_' and
                            k not in ('manager', 'request_id'))
-        attr_list = ", ".join("%s=%s" % (k, getattr(self, k)) for k in repr_keys)
+        attr_list = ", ".join("%s=%s" % (k, getattr(self, k))
+                              for k in repr_keys)
         return "<%s %s>" % (self.__class__.__name__, attr_list)
 
     def __eq__(self, other):

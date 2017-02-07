@@ -34,18 +34,20 @@ def make_client(instance):
     """Returns an orchestration service client"""
 
     api_version = instance._api_version[API_NAME]
-    as_client_clazz = utils.get_client_class(API_NAME, api_version, API_VERSIONS)
+    client_clazz = utils.get_client_class(API_NAME, api_version, API_VERSIONS)
 
     kwargs = {
         'region_name': instance.region_name,
         'interface': instance.interface
     }
-    endpoint = instance._cli_options.config.get('cloudeye_endpoint_override', None)
+    endpoint = instance._cli_options.config.get(
+        'cloudeye_endpoint_override', None
+    )
 
-    LOGGER.debug('Instantiating cloud eye client: %s', as_client_clazz)
+    LOGGER.debug('Instantiating cloud eye client: %s', client_clazz)
     LOGGER.debug('Instantiating cloud eye client with kwargs: %s', kwargs)
     LOGGER.debug('Instantiating cloud eye client with endpoint: %s', endpoint)
-    client = as_client_clazz(instance.session, endpoint, **kwargs)
+    client = client_clazz(instance.session, endpoint, **kwargs)
     return client
 
 
