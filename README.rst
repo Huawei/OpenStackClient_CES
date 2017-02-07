@@ -1,4 +1,4 @@
-python-antiddosclient
+python-cloudeyeclient
 =====================
 
 This is a `OpenStack Client`_ plugin for HuaWei Cloud-Eye Management API which
@@ -169,7 +169,7 @@ Python Library Usage
 
 The full api is documented in the `CloudEye Offical Document`_ site
 
-Here's an example of listing antiddos status using Python library with keystone V3 authentication:
+Here's an example of listing metric types using Python library with keystone V3 authentication:
 
 .. code:: python
 
