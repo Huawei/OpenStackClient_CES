@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -20,7 +19,6 @@ from osc_lib.cli import parseractions
 
 
 class BaseParser(object):
-
     @staticmethod
     def register_service_option(parser, service_type):
         service_env = service_type.upper().replace('-', '_')
@@ -32,8 +30,8 @@ class BaseParser(object):
                 'OS_{service_type}_API_VERSION'.format(
                     service_type=service_env), None),
             help=(_('Which version of the service API to use for'
-                  ' the {service_type} service').format(
-                    service_type=service_type)))
+                    ' the {service_type} service').format(
+                service_type=service_type)))
         parser.add_argument(
             '--os-{service_type}-endpoint-override'.format(
                 service_type=service_type),
@@ -42,8 +40,8 @@ class BaseParser(object):
                 'OS_{service_type}_ENDPOINT_OVERRIDE'.format(
                     service_type=service_env), None),
             help=(_('Endpoint to use for the {service_type} service'
-                  ' instead of the endpoint in the catalog').format(
-                    service_type=service_type)))
+                    ' instead of the endpoint in the catalog').format(
+                service_type=service_type)))
 
     @staticmethod
     def add_limit_option(parser, max_number):

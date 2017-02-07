@@ -37,8 +37,8 @@ class ListAlarm(command.Lister):
     def take_action(self, args):
         alarm_mgr = self.app.client_manager.cloudeye.alarm_mgr
         alarms = alarm_mgr.list(start=args.start,
-                                 limit=args.limit,
-                                 order=args.order)
+                                limit=args.limit,
+                                order=args.order)
         columns = resource.Alarm.list_column_names
         return columns, (a.get_display_data(columns) for a in alarms)
 

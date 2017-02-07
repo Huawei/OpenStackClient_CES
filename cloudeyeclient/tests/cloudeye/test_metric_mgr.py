@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
 #   Licensed under the Apache License, Version 2.0 (the 'License'); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -40,14 +39,7 @@ class TestMetricMgr(base.BaseTestCase):
         self.assertEqual(parsed.start, 'namespace.metric-name.key:value')
         self.assertEqual(parsed.dimension, {'key1': 'value1', 'key2': 'value2'})
 
-        for k in parsed.dimension.keys():
-            print k
-
         dimensions = [k + ',' + v
                       for k, v in six.iteritems(parsed.dimension)]
         self.assertEqual(['key1,value1', 'key2,value2'], dimensions)
 
-    def test_build(self):
-        dimensions = ["key,value", "key2,value2"]
-        a = ["dim.%d=%s" % (idx, dimension) for (idx, dimension) in enumerate(dimensions)]
-        print a

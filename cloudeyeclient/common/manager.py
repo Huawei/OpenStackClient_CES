@@ -34,7 +34,8 @@ class Manager(object):
     def __init__(self, http_client):
         """initial with open stack http client
 
-        :param antiddosclient.common.httpclient.OpenStackHttpClient http_client:
+        :param http_client: http requester with type of
+            cloudeyeclient.common.httpclient.OpenStackHttpClient
         """
         self.http_client = http_client
 

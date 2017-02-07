@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -52,10 +51,11 @@ class Client(object):
 
         if endpoint:
             endpoint += '/V1.0/%(project_id)s'
-        self.client = httpclient.OpenStackHttpClient(session, endpoint, **kwargs)
+        self.client = httpclient.OpenStackHttpClient(
+            session, endpoint, **kwargs
+        )
 
         # initial manager of cloud eye
         self.metric_mgr = metric_mgr.MetricManager(self.client)
         self.alarm_mgr = alarm_mgr.AlarmManager(self.client)
         self.quota_mgr = quota_mgr.QuotaManager(self.client)
-
