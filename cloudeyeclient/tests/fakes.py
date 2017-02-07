@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -13,8 +12,11 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
-
 import mock
+
+from oslo_serialization import jsonutils
+from requests import Response
+
 from cloudeyeclient.common import display
 from cloudeyeclient.common import manager
 from cloudeyeclient.common import resource as r
@@ -22,8 +24,7 @@ from cloudeyeclient.common import utils
 from cloudeyeclient.v1 import alarm_mgr
 from cloudeyeclient.v1 import metric_mgr
 from cloudeyeclient.v1 import quota_mgr
-from oslo_serialization import jsonutils
-from requests import Response
+
 
 # fake request id
 FAKE_REQUEST_ID = 'req-0594c66b-6973-405c-ae2c-43fcfc00f2e3'

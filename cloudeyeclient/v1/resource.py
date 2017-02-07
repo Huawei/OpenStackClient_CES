@@ -45,12 +45,12 @@ class Metric(resource.Resource, display.Display):
         if self.dimensions and len(self.dimensions) > 0:
             return ';'.join([dim['name'] + '=' + dim['value']
                              for dim in self.dimensions])
-        return '';
+        return ''
 
 
 def condition_formatter(condition):
     return ("Event {filter}{comparison_operator}{value} occurs {count}"
-            " times in {period} seconds").format(**condition);
+            " times in {period} seconds").format(**condition)
 
 
 class Alarm(resource.Resource, display.Display):
@@ -102,7 +102,7 @@ class Alarm(resource.Resource, display.Display):
         if dimensions and dimensions > 0:
             return ';'.join([dim['name'] + '=' + dim['value']
                              for dim in dimensions])
-        return '';
+        return ''
 
     formatter = {
         "condition": condition_formatter,

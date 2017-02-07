@@ -1,5 +1,4 @@
 #   Copyright 2016 Huawei, Inc. All rights reserved.
-#
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -14,8 +13,7 @@
 #
 import mock
 
-
-from cloudeyeclient.common import  resource as base_resource
+from cloudeyeclient.common import resource as base_resource
 from cloudeyeclient.osc.v1 import alarm
 from cloudeyeclient.tests import base
 from cloudeyeclient.v1 import alarm_mgr

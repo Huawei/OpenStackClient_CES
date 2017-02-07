@@ -1,5 +1,4 @@
 #   Copyright 2016 Huawei, Inc. All rights reserved.
-#
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -14,11 +13,12 @@
 #
 import logging
 
+from osc_lib.command import command
+
 from cloudeyeclient.common import parser_builder as bpb
 from cloudeyeclient.common.i18n import _
 from cloudeyeclient.osc.v1 import parser_builder as pb
 from cloudeyeclient.v1 import resource
-from osc_lib.command import command
 
 LOG = logging.getLogger(__name__)
 

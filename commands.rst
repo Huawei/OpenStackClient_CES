@@ -3,33 +3,32 @@ Command Samples
 
 1. metric list (查询指标列表)::
 
-    $ openstack metric list --namespace=SYS.VPC --metric-name=up_bandwidth
+    $  openstack metric list --namespace=SYS.VPC --metric-name=up_bandwidth
         --start=SYS.VPC.up_bandwidth.bandwidth_id:a6e74b9d-e2c8-4bf8-85a2-cc78a04c6cb4
         --os-cloudeye-endpoint-override=https://ces.eu-de.otc.t-systems.com
-    +-----------+--------------+---------------------------------------------------+--------+
-    | Namespace | Metric Name  | Dimension                                         | Unit   |
-    +-----------+--------------+---------------------------------------------------+--------+
-    | SYS.VPC   | up_bandwidth | bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4 | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=74cf708f-9c1e-4f32-bd83-9b945dfe9434 | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=59ab20fd-53c8-44ce-ba03-19dc2f6f038f | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=38d50758-da39-4d3f-9ee0-9bd78050f682 | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=1d101781-c5ca-47f2-a848-dab03ad341f3 | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=1607470e-8542-40a6-a826-a3e3affff2fc | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=13b617cd-459c-4351-87a7-ed85e9e59f9d | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=0c2d5910-55ad-4406-8ee5-fed14a76d0c3 | Byte/s |
-    | SYS.VPC   | up_bandwidth | bandwidth_id=0082ecc5-a7f4-47c2-9196-6fefb4394019 | Byte/s |
-    +-----------+--------------+---------------------------------------------------+--------+
+    +-----------+--------------+--------------------------------------------------------+--------+
+    | Namespace | Metric Name  | Dimension                                              | Unit   |
+    +-----------+--------------+--------------------------------------------------------+--------+
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=74cf708f-9c1e-4f32-bd83-9b945dfe9434'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=59ab20fd-53c8-44ce-ba03-19dc2f6f038f'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=38d50758-da39-4d3f-9ee0-9bd78050f682'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=1d101781-c5ca-47f2-a848-dab03ad341f3'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=1607470e-8542-40a6-a826-a3e3affff2fc'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=13b617cd-459c-4351-87a7-ed85e9e59f9d'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=0c2d5910-55ad-4406-8ee5-fed14a76d0c3'] | Byte/s |
+    | SYS.VPC   | up_bandwidth | [u'bandwidth_id=0082ecc5-a7f4-47c2-9196-6fefb4394019'] | Byte/s |
+    +-----------+--------------+--------------------------------------------------------+--------+
 
     $ openstack metric list --dimensions=bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4
-    +-----------+----------------+---------------------------------------------------+--------+
-    | Namespace | Metric Name    | Dimension                                         | Unit   |
-    +-----------+----------------+---------------------------------------------------+--------+
-    | SYS.VPC   | up_bandwidth   | bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4 | Byte/s |
-    | SYS.VPC   | down_bandwidth | bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4 | Byte/s |
-    +-----------+----------------+---------------------------------------------------+--------+
+    +-----------+----------------+--------------------------------------------------------+--------+
+    | Namespace | Metric Name    | Dimension                                              | Unit   |
+    +-----------+----------------+--------------------------------------------------------+--------+
+    | SYS.VPC   | up_bandwidth   | [u'bandwidth_id=59ab20fd-53c8-44ce-ba03-19dc2f6f038f'] | Byte/s |
+    | SYS.VPC   | down_bandwidth | [u'bandwidth_id=59ab20fd-53c8-44ce-ba03-19dc2f6f038f'] | Byte/s |
+    +-----------+----------------+--------------------------------------------------------+--------+
 
-
-#. metric favorite list (查询已关注指标)::
+#. metric list (查询已关注指标)::
 
     $  openstack metric favorite list --os-cloudeye-endpoint-override=https://ces.eu-de.otc.t-systems.com
     +-----------+---------------------------------------+-------------------------------------------------------+
@@ -41,7 +40,6 @@ Command Samples
     | SYS.ECS   | network_outgoing_bytes_aggregate_rate | instance_id=5b4c1602-fb6d-4f1e-87a8-dcf21d9654ba      |
     | SYS.VPC   | down_bandwidth                        | bandwidth_id=1607470e-8542-40a6-a826-a3e3affff2fc     |
     +-----------+---------------------------------------+-------------------------------------------------------+
-
 
 #. alarm list (查询告警规则列表)::
 

@@ -1,5 +1,4 @@
 #   Copyright 2016 Huawei, Inc. All rights reserved.
-#
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -307,17 +306,19 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
         parsed_args = self.check_parser(
             self.cmd, args, verify_args
         )
-        mocked_create.return_value = base_resource.StrWithMeta('', 'Request-Id')
+        mocked_create.return_value = base_resource.StrWithMeta(
+            '', 'Fake-Request-Id'
+        )
         data = self.cmd.take_action(parsed_args)
 
         formdata = {
             "metric": {
                 "namespace": "Woo.ECS",
                 "dimensions": [{
-                    "name" : "bandwidth_id",
+                    "name": "bandwidth_id",
                     "value": "775c271a-93f7-4a8c-b8fa-da91a9a0dcd4"
                 }, {
-                    "name" : "instance_id",
+                    "name": "instance_id",
                     "value": "5b4c1602-fb6d-4f1e-87a8-dcf21d9654ba"
                 }],
                 "metric_name": "cpu_util"
