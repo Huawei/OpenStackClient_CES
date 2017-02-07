@@ -14,7 +14,22 @@
 #
 from osc_lib.tests import utils
 
+from cloudeyeclient.tests import fakes
+
 
 class BaseTestCase(utils.TestCommand):
     """Base Test case class for all unit tests."""
     pass
+
+
+class CloudEyeV1BaseTestCase(BaseTestCase):
+    """Base test case class for Cloud Eye V1 management API."""
+
+    def __init__(self, *args, **kwargs):
+        super(CloudEyeV1BaseTestCase, self).__init__(*args, **kwargs)
+        self.cmd = None
+
+    def setUp(self):
+        super(CloudEyeV1BaseTestCase, self).setUp()
+        fake_cloudeye_client = fakes.FakeCloudEyeV1Client()
+        self.app.client_manager.cloudeye = fake_cloudeye_client

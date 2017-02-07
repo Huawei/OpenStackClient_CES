@@ -1,5 +1,4 @@
 #   Copyright 2016 Huawei, Inc. All rights reserved.
-#
 #   Licensed under the Apache License, Version 2.0 (the "License"); you may
 #   not use this file except in compliance with the License. You may obtain
 #   a copy of the License at
@@ -91,7 +90,8 @@ class ListMetricData(command.Lister):
                                            filter_=args.filter,
                                            dimensions=dimensions)
         columns = ["timestamp", args.filter, "unit"]
-        return columns, (r.get_display_data(columns) for r in data)
+        formatter = resource.MetricData.formatter
+        return columns, (r.get_display_data(columns, formatter) for r in data)
 
 
 class AddMetricData(command.Command):
