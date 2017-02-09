@@ -12,9 +12,11 @@ Currently, We can install the plugin from source code
 
 .. code:: console
 
-  git clone https://github.com/Huawei/OpenStackClient_CES python-cloudeyeclient
-  cd python-cloudeyeclient
-  python setup.py install
+    $ git clone https://github.com/Huawei/OpenStackClient_CES python-cloudeyeclient
+    $ cd python-cloudeyeclient
+    # use python setup.py develop for test purpose
+    $ python setup.py install
+    $ pip install -r requirements.txt
 
 
 Command Line Client Usage
