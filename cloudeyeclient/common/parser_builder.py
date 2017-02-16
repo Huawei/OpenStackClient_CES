@@ -48,7 +48,7 @@ class BaseParser(object):
         parser.add_argument(
             "--limit",
             type=int,
-            metavar="<count>",
+            metavar="<limit>",
             help=_("return result limit, max size is %d" % max_number)
         )
 
@@ -57,7 +57,7 @@ class BaseParser(object):
         parser.add_argument(
             "--offset",
             type=int,
-            metavar="<count>",
+            metavar="<offset>",
             help=_("return result offset")
         )
 

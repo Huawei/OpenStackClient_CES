@@ -22,7 +22,7 @@ LOG = logging.getLogger(__name__)
 
 
 class ListQuota(command.Lister):
-    _description = _("list metrics")
+    _description = _("list quota")
 
     def get_parser(self, prog_name):
         parser = super(ListQuota, self).get_parser(prog_name)

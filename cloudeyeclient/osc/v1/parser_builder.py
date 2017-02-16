@@ -173,9 +173,8 @@ class AlarmParser(object):
         parser.add_argument(
             "--start",
             required=required,
-            metavar="<count>",
-            type=int,
-            help=_("Pagination result start from"),
+            metavar="<alarm-id>",
+            help=_("list alarms after the alarm-id"),
         )
 
     @staticmethod
@@ -183,5 +182,5 @@ class AlarmParser(object):
         parser.add_argument(
             "alarm_id",
             metavar="<alarm-id>",
-            help=_("alarm with id to be %s" % op),
+            help=_("Alarm to be %s (alarm-id)" % op),
         )

@@ -87,11 +87,11 @@ class DisableAlarm(command.Command):
 
 
 class DeleteAlarm(command.Command):
-    _description = _("disable alarm")
+    _description = _("delete alarm")
 
     def get_parser(self, prog_name):
         parser = super(DeleteAlarm, self).get_parser(prog_name)
-        pb.AlarmParser.add_alarm_id_arg(parser, 'disabled')
+        pb.AlarmParser.add_alarm_id_arg(parser, 'delete')
         return parser
 
     def take_action(self, args):
