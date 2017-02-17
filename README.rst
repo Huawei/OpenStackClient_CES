@@ -10,6 +10,7 @@ Installation
 ------------
 
 1. Install python-openstackclient
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This project is a plugin of  `OpenStack Client`_. Therefor, you need
 to have `OpenStack Client`_ installed before using the plugin. You can
@@ -21,6 +22,7 @@ install `OpenStack Client`_ by pip::
 official site* `OpenStack Client`_
 
 2. Install plugin
+^^^^^^^^^^^^^^^^^^
 
 Currently, We can install the plugin from source code
 
