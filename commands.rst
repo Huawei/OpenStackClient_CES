@@ -20,7 +20,7 @@ Command Samples
     | SYS.VPC   | up_bandwidth | [u'bandwidth_id=0082ecc5-a7f4-47c2-9196-6fefb4394019'] | Byte/s |
     +-----------+--------------+--------------------------------------------------------+--------+
 
-    $ openstack metric list --dimensions=bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4
+    $ openstack metric list --dimension=bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4
     +-----------+----------------+--------------------------------------------------------+--------+
     | Namespace | Metric Name    | Dimension                                              | Unit   |
     +-----------+----------------+--------------------------------------------------------+--------+
