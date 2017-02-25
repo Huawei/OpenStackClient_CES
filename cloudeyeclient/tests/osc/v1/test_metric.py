@@ -53,8 +53,8 @@ class TestListMetric(base.CloudEyeV1BaseTestCase):
             "--start", start,
             "--limit", "100",
             "--order", "asc",
-            "--dimensions", dimension_1,
-            "--dimensions", dimension_2
+            "--dimension", dimension_1,
+            "--dimension", dimension_2
         ]
 
         verify_args = [
@@ -219,8 +219,8 @@ class TestListMetricData(base.CloudEyeV1BaseTestCase):
             "--to", "1442390649274",
             "--period", "1",
             "--filter", "average",
-            "--dimensions", dimension_1,
-            "--dimensions", dimension_2
+            "--dimension", dimension_1,
+            "--dimension", dimension_2
         ]
 
         verify_args = [
@@ -289,8 +289,8 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
             "--unit", "%",
             "--type", "int",
             "--collect-time", "1485699044212",
-            "--dimensions", dimension_1,
-            "--dimensions", dimension_2
+            "--dimension", dimension_1,
+            "--dimension", dimension_2
         ]
 
         verify_args = [

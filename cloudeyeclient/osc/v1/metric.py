@@ -29,7 +29,7 @@ class ListMetric(command.Lister):
         parser = super(ListMetric, self).get_parser(prog_name)
         pb.MetricParser.add_namespace_arg(parser)
         pb.MetricParser.add_metric_name_arg(parser)
-        pb.MetricParser.add_dimensions_arg(parser)
+        pb.MetricParser.add_dimension_arg(parser)
         pb.MetricParser.add_start_arg(parser)
         bpb.BaseParser.add_limit_option(parser, 1000)
         bpb.BaseParser.add_order_option(parser)
@@ -75,7 +75,7 @@ class ListMetricData(command.Lister):
         pb.MetricParser.add_to_arg(parser)
         pb.MetricParser.add_period_arg(parser)
         pb.MetricParser.add_filter_arg(parser)
-        pb.MetricParser.add_dimensions_arg(parser, True)
+        pb.MetricParser.add_dimension_arg(parser, True)
         return parser
 
     def take_action(self, args):
@@ -101,7 +101,7 @@ class AddMetricData(command.Command):
         parser = super(AddMetricData, self).get_parser(prog_name)
         pb.MetricParser.add_custom_namespace_arg(parser, True)
         pb.MetricParser.add_metric_name_arg(parser, True)
-        pb.MetricParser.add_dimensions_arg(parser, True)
+        pb.MetricParser.add_dimension_arg(parser, True)
         pb.MetricParser.add_ttl_arg(parser, True)
         pb.MetricParser.add_collect_time_arg(parser, True)
         pb.MetricParser.add_value_arg(parser, True)

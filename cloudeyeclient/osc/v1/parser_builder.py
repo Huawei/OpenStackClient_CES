@@ -47,12 +47,13 @@ class MetricParser(object):
         )
 
     @staticmethod
-    def add_dimensions_arg(parser, required=False):
+    def add_dimension_arg(parser, required=False):
         parser.add_argument(
-            "--dimensions",
+            "--dimension",
             required=required,
             metavar="<key=value>",
             default=[],
+            dest="dimensions",
             action='append',
             help=_("Metric dimension (repeat to set multiple "
                    "dimension, max repeat time is 3)"),
