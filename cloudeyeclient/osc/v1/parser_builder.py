@@ -133,7 +133,7 @@ class MetricParser(object):
             "--value",
             required=required,
             metavar="<value>",
-            type=int,
+            type=float,
             help=_("metric data value"),
         )
 

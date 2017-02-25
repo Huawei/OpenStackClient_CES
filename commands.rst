@@ -99,9 +99,7 @@ Command Samples
 
 #. metric data create (添加监控数据)::
 
-    $ openstack metric data create --namespace=woo.ecs --metric-name=cpu_util
-        --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
-        --ttl 604800 --collect-time=1485699044212 --value=10 --unit=% --type=int --debug
+    $ openstack metric data create --namespace=woo.ecs --metric-name=cpu_util --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0 --ttl 604800 --collect-time=1485699044212 --value=10 --unit=% --type=int --debug
     Metric data has been added
 
 #. quota list (查询配额)::
