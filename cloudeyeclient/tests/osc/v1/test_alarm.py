@@ -83,7 +83,7 @@ class TestListAlarm(base.CloudEyeV1BaseTestCase):
             "--order", "asc"
         ]
         verify_args = [
-            ("start", 10),
+            ("start", "10"),
             ("limit", 20),
             ("order", "asc"),
         ]
@@ -95,7 +95,7 @@ class TestListAlarm(base.CloudEyeV1BaseTestCase):
         mocked_list.return_value = alarms
 
         columns, data = self.cmd.take_action(parsed_args)
-        params = {'start': 10, 'limit': 20, 'order': 'asc'}
+        params = {'start': "10", 'limit': 20, 'order': 'asc'}
         mocked_list.assert_called_once_with(
             "/alarms", key="metric_alarms", params=params
         )

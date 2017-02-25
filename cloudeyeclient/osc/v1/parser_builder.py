@@ -32,8 +32,9 @@ class MetricParser(object):
         parser.add_argument(
             "--namespace",
             required=required,
-            choices=MetricParser.namespaces,
-            help=_("list metric with namespace")
+            # choices=MetricParser.namespaces,
+            help=_("list metric with namespace "
+                   "(examples: SYS.ECS, SYS.EVS, SYS.AS)")
         )
 
     @staticmethod
