@@ -12,6 +12,7 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
+from cloudeyeclient.common import parsetypes
 from cloudeyeclient.common.i18n import _
 
 
@@ -75,9 +76,10 @@ class MetricParser(object):
             "--from",
             required=required,
             dest="from_",
-            metavar="<timestamp>",
-            type=int,
-            help=_("Unix timestamp (milliseconds)"),
+            metavar="<yyyy-MM-ddTHH:mm:ss>",
+            type=parsetypes.date_type('%Y-%m-%dT%H:%M:%S'),
+            help=_("metric data after this time "
+                   "(UTC timestamp with format yyyy-MM-ddTHH:mm:ss)"),
         )
 
     @staticmethod
@@ -85,9 +87,10 @@ class MetricParser(object):
         parser.add_argument(
             "--to",
             required=required,
-            metavar="<timestamp>",
-            type=int,
-            help=_("Unix timestamp (milliseconds)"),
+            metavar="<yyyy-MM-ddTHH:mm:ss>",
+            type=parsetypes.date_type('%Y-%m-%dT%H:%M:%S'),
+            help=_("metric data before this time "
+                   "(UTC timestamp with format yyyy-MM-ddTHH:mm:ss)"),
         )
 
     @staticmethod
@@ -124,9 +127,10 @@ class MetricParser(object):
         parser.add_argument(
             "--collect-time",
             required=required,
-            metavar="<timestamp>",
-            type=int,
-            help=_("UNIX timestamp"),
+            metavar="<yyyy-MM-ddTHH:mm:ss>",
+            type=parsetypes.date_type('%Y-%m-%dT%H:%M:%S'),
+            help=_("metric data collect time"
+                   "(UTC timestamp with format yyyy-MM-ddTHH:mm:ss)"),
         )
 
     @staticmethod

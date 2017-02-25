@@ -118,12 +118,12 @@ class AddMetricData(command.Command):
                 "name": split[0],
                 "value": split[1]
             })
-        data = metric_mgr.add_metric_data(namespace=args.namespace,
-                                          metric_name=args.metric_name,
-                                          dimensions=dimensions,
-                                          ttl=args.ttl,
-                                          collect_time=args.collect_time,
-                                          value=args.value,
-                                          unit=args.unit,
-                                          type_=args.type_)
+        metric_mgr.add_metric_data(namespace=args.namespace,
+                                   metric_name=args.metric_name,
+                                   dimensions=dimensions,
+                                   ttl=args.ttl,
+                                   collect_time=args.collect_time,
+                                   value=args.value,
+                                   unit=args.unit,
+                                   type_=args.type_)
         return 'Metric data has been added'

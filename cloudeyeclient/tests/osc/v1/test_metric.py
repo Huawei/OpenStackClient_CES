@@ -11,6 +11,7 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
+import datetime
 import mock
 
 from cloudeyeclient.common import resource as base_resource
@@ -212,11 +213,12 @@ class TestListMetricData(base.CloudEyeV1BaseTestCase):
     def test_list_metric_data(self, mocked_list):
         dimension_1 = "bandwidth_id=775c271a-93f7-4a8c-b8fa-da91a9a0dcd4"
         dimension_2 = "instance_id=5b4c1602-fb6d-4f1e-87a8-dcf21d9654ba"
+
         args = [
             "--namespace", "SYS.ECS",
             "--metric-name", "cpu_util",
-            "--from", "1442347449274",
-            "--to", "1442390649274",
+            "--from", "2017-02-14T18:00:00",
+            "--to", "2017-02-14T19:00:00",
             "--period", "1",
             "--filter", "average",
             "--dimension", dimension_1,
@@ -226,8 +228,8 @@ class TestListMetricData(base.CloudEyeV1BaseTestCase):
         verify_args = [
             ("namespace", "SYS.ECS"),
             ("metric_name", "cpu_util"),
-            ("from_", 1442347449274),
-            ("to", 1442390649274),
+            ("from_", datetime.datetime(2017, 2, 14, hour=18)),
+            ("to", datetime.datetime(2017, 2, 14, hour=19)),
             ("period", "1"),
             ("filter", "average"),
             ("dimensions", [dimension_1, dimension_2]),
@@ -242,8 +244,8 @@ class TestListMetricData(base.CloudEyeV1BaseTestCase):
         params = {
             "namespace": "SYS.ECS",
             "metric_name": "cpu_util",
-            "from": 1442347449274,
-            "to": 1442390649274,
+            "from": 1487066400000L,
+            "to": 1487070000000L,
             "period": "1",
             "filter": "average",
             "dim.0": dimension_1.replace('=', ','),
@@ -288,7 +290,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
             "--value", "10",
             "--unit", "%",
             "--type", "int",
-            "--collect-time", "1485699044212",
+            "--collect-time", "2017-02-14T18:00:00",
             "--dimension", dimension_1,
             "--dimension", dimension_2
         ]
@@ -300,7 +302,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
             ("value", 10),
             ("unit", "%"),
             ("type_", "int"),
-            ("collect_time", 1485699044212),
+            ("collect_time", datetime.datetime(2017, 2, 14, hour=18)),
             ("dimensions", [dimension_1, dimension_2]),
         ]
         parsed_args = self.check_parser(
@@ -311,7 +313,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
         )
         data = self.cmd.take_action(parsed_args)
 
-        formdata = {
+        json = {
             "metric": {
                 "namespace": "Woo.ECS",
                 "dimensions": [{
@@ -324,7 +326,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
                 "metric_name": "cpu_util"
             },
             "ttl": 604800,
-            "collect_time": 1485699044212,
+            "collect_time": 1487066400000L,
             "value": 10,
             "unit": "%",
             "type": "int"
@@ -332,7 +334,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
 
         mocked_create.assert_called_once_with(
             '/metric-data',
-            data=[formdata],
+            json=[json],
             raw=True
         )
         self.assertEqual(data, 'Metric data has been added')

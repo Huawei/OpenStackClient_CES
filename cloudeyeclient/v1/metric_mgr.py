@@ -12,7 +12,7 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
-
+import time
 from cloudeyeclient.common import manager
 from cloudeyeclient.common import utils
 from cloudeyeclient.v1 import resource
@@ -57,8 +57,8 @@ class MetricManager(manager.Manager):
         params = {
             "namespace": namespace,
             "metric_name": metric_name,
-            "from": from_,
-            "to": to,
+            "from": utils.get_milliseconds(from_),
+            "to": utils.get_milliseconds(to),
             "period": period,
             "filter": filter_,
         }
@@ -80,10 +80,10 @@ class MetricManager(manager.Manager):
                 "metric_name": metric_name
             },
             "ttl": ttl,
-            "collect_time": collect_time,
+            "collect_time": utils.get_milliseconds(collect_time),
             "value": value,
             "unit": unit,
             "type": type_
         })
 
-        return self._create('/metric-data', data=[data], raw=True)
+        return self._create('/metric-data', json=[data], raw=True)

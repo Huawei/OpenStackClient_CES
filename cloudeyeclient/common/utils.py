@@ -12,6 +12,7 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
+import time
 from datetime import datetime
 
 
@@ -50,3 +51,11 @@ def format_time(time_in_long, _format='%Y-%m-%d %H:%M:%S'):
         return timestamp.strftime(_format)
     else:
         return ''
+
+
+def get_milliseconds(datetime_):
+    if datetime:
+        seconds = time.mktime(datetime_.timetuple())
+        return int(seconds) * 1000
+    else:
+        return None
