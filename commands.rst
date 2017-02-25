@@ -87,7 +87,7 @@ Command Samples
 #. metric data list (查询监控数据)::
 
     $ openstack metric data list --namespace=SYS.ECS --metric-name=cpu_util --filter=max
-     --period=1 --from=1485698044212 --to=1485699044212 --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
+     --period=1 --from=2017-02-24T21:00:00 --to=2017-02-25T21:00:00 --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
     +---------------+-----+------+
     | timestamp     | max | unit |
     +---------------+-----+------+
@@ -101,7 +101,7 @@ Command Samples
 
     $ openstack metric data create --namespace=woo.ecs --metric-name=cpu_util
         --dimension=instance_id=14271c29-143d-4383-b44c-7013fd840be0
-        --ttl 604800 --collect-time=1485699044212 --value=10 --unit=% --type=int --debug
+        --ttl 604800 --collect-time=2017-02-24T21:00:00 --value=10 --unit=% --type=int --debug
     Metric data has been added
 
 #. quota list (查询配额)::
