@@ -28,3 +28,26 @@ def date_type(date_format):
         raise argparse.ArgumentTypeError(msg)
 
     return wrapped
+
+
+def int_range_type(from_, to):
+    def wrapped(user_input):
+        try:
+            int_user_input = int(user_input)
+        except ValueError:
+            msg = _("Not a valid integer value: %s") % user_input
+            raise argparse.ArgumentTypeError(msg)
+
+        if int_user_input > to:
+            tpl = _("Your input %s is great than max valid value %d")
+            msg = tpl % (user_input, to)
+            raise argparse.ArgumentTypeError(msg)
+
+        if int_user_input < from_:
+            tpl = _("Your input %s is less than min valid value %d")
+            msg = tpl % (user_input, from_)
+            raise argparse.ArgumentTypeError(msg)
+
+        return int_user_input
+
+    return wrapped

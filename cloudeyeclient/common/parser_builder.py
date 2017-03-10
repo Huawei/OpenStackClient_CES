@@ -14,6 +14,7 @@
 #
 import os
 
+from cloudeyeclient.common import parsetypes
 from cloudeyeclient.common.i18n import _
 from osc_lib.cli import parseractions
 
@@ -47,8 +48,8 @@ class BaseParser(object):
     def add_limit_option(parser, max_number):
         parser.add_argument(
             "--limit",
-            type=int,
             metavar="<limit>",
+            type=parsetypes.int_range_type(1, max_number + 1),
             help=_("return result limit, max size is %d" % max_number)
         )
 
