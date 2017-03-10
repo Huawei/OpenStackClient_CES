@@ -49,7 +49,7 @@ class BaseParser(object):
         parser.add_argument(
             "--limit",
             metavar="<limit>",
-            type=parsetypes.int_range_type(1, max_number + 1),
+            type=parsetypes.int_range_type(1, max_number),
             help=_("return result limit, max size is %d" % max_number)
         )
 
