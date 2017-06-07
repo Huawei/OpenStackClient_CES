@@ -39,8 +39,6 @@ class TestCloudEyePlugin(base.BaseTestCase):
         client.assert_called_once_with(
             instance.session,
             "http://cloudeye.endpoint",
-            region_name=fakes.REGION_NAME,
-            interface=fakes.INTERFACE,
         )
 
     def test_plugin_parser(self):
