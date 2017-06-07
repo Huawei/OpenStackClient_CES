@@ -326,7 +326,7 @@ class TestAddMetricData(base.CloudEyeV1BaseTestCase):
                 "metric_name": "cpu_util"
             },
             "ttl": 604800,
-            "collect_time": 1487066400000L,
+            "collect_time": 1487066400000,
             "value": 10,
             "unit": "%",
             "type": "int"
